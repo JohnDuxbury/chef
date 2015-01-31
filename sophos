@@ -1,0 +1,21 @@
+{
+  "name": "antivirus",
+  "description": "Set up sophos",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "sophos-itops": {
+      "ftp": {
+        "host": "jadux.16mb.com",
+        "path": "sav-linux-9-i386.tgz"
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[sophos-itops]"
+  ],
+  "env_run_lists": {
+  }
+}
