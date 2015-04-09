@@ -22,3 +22,14 @@ knife cookbook upload mysql
 
 knife node run_list add JD-Magento "recipe[base]"
 knife node run_list add JD-Magento "recipe[base],recipe[webserv],recipe[php],recipe[mysql]”
+
+scp -P 2222 -r ./* jadux@jd-magento.cloudapp.net:/var/www/html/downloader
+find . -type f -exec chmod 644 {} \;
+find . -type d -exec chmod 755 {} \;
+chmod o+w var var/.htaccess app/etc
+chmod 550 mage
+chmod -R o+w media
+
+scp -P 2222 ./magento-1.9.1.0.tar-2015-02-09-10-12-12.bz2 jadux@jd-magento.cloudapp.net:/home/jadux
+sudo mv magento-1.9.1.0.tar-2015-02-09-10-12-12.bz2 /var/www/html
+tar -jxf magento-1.9.1.0.tar-2015-02-09-10-12-12.bz2

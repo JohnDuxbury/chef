@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-execute "rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm"
+# execute "rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm"
 
 package "php55w" do
     action :install
