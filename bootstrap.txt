@@ -3,9 +3,13 @@ knife bootstrap jd-magento.cloudapp.net -x jadux -P ******** --sudo -N "JD-Magen
 knife environment from file ./environments/dev.json
 knife environment from file ./environments/production.json
 
-knife role from file ./roles/starter.rb
-knife role from file ./roles/base.rb
-knife role from file ./roles/newrelic.rb
-knife role from file ./roles/websvr.rb
+cd - /Users/JohnD/Documents/GitHub/Chef/chef
 
-knife recipe from file ./recipes/newrelic.rb
+knife role from file ./roles/starter.rb
+knife role from file ./roles/base.json
+knife role from file ./roles/newrelic.json
+knife role from file ./roles/websvr.json
+
+knife cookbook create base
+knife cookbook create webserv
+
