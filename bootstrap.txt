@@ -13,3 +13,4 @@ knife role from file ./roles/websvr.json
 knife cookbook create base
 knife cookbook create webserv
 
+knife node run_list add JD-Magento "recipe[base],recipe[webserv],recipe[php],recipe[mysql]”
