@@ -6,23 +6,45 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+execute "rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm"
 
-package "php54w" do
+package "php55w" do
     action :install
 end
 
-package "php54w-cli" do
+package "php55w-cli" do
     action :install
 end
 
-package "php54w-common" do
-    action :install
-end
-package "php54w-gd" do
+package "php55w-common" do
     action :install
 end
 
-package "php54w-mysql" do
+package "php55w-devel" do
+    action :install
+end
+
+package "php55w-gd" do
+    action :install
+end
+
+package "php55w-mbstring" do
+    action :install
+end
+
+package "php55w-mcrypt" do
+    action :install
+end
+
+package "php55w-mysql" do
+    action :install
+end
+
+package "php55w-opcache" do
+    action :install
+end
+
+package "php55w-xml" do
     action :install
 end
 
