@@ -6,11 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package "mysql55" do
-    action :install
-end
-
-package "mysql55-server" do
+package "mysql-community-server" do
     action :install
 end
 
