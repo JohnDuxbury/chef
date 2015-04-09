@@ -1,0 +1,21 @@
+{
+  "name": "production",
+  "description": "for production",
+  "cookbook_versions": {
+    "apache": "= 0.1.1"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "hosts": {
+      "entries" : [
+        "192.168.0.251 jd-redis"
+      ]
+    },
+    "apache": {
+      "traceenable": "Off"
+    }
+  },
+  "override_attributes": {
+  }
+}
