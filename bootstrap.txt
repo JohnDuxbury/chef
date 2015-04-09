@@ -1,0 +1,6 @@
+knife bootstrap jd-magento.cloudapp.net -x jadux -P ******** --sudo -N "JD-Magento" -p 2222
+
+knife environment from file ./environments/dev.json
+knife environment from file ./environments/production.json
+
+knife role from file ./roles/starter.rb
