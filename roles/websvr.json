@@ -1,0 +1,76 @@
+{
+  "name": "web-server",
+  "description": "Role for web servers that will run PHP and Magento customer facing functionality",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "magento": {
+      "php": {
+        "memory_limit": "1024M",
+        "max_execution_time": "60"
+      }
+    },
+    "apache": {
+      "default_modules": [
+        "status",
+        "auth_basic",
+        "authn_file",
+        "authz_default",
+        "authz_groupfile",
+        "authz_host",
+        "authz_user",
+        "autoindex",
+        "dir",
+        "env",
+        "mime",
+        "negotiation",
+        "setenvif",
+        "log_config",
+        "logio"
+      ]
+    },
+    "php": {
+        "directives": {
+            "expose_php": "off"
+        }
+    }
+  },
+  "override_attributes": {
+    "apache": {
+      "listen_ports": [
+        "8080",
+        "443"
+      ],
+      "unsecure_port": "8080"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[yum::epel]",
+    "recipe[yum::ius]",
+    "recipe[build-essential]",
+    "recipe[git]",
+    "recipe[mysql::client@3.0.0]",
+    "recipe[chef-php-extra]",
+    "recipe[apache2]",
+    "recipe[apache2::mod_php5]",
+    "recipe[apache2::mod_rewrite]",
+    "recipe[apache2::mod_ssl]",
+    "recipe[apache2::mod_deflate]",
+    "recipe[apache2::mod_expires]",
+    "recipe[apache2::mod_headers]",
+    "recipe[apache2-missguided::mod_alias]",
+    "recipe[nfs-mount]",
+    "recipe[chef-php-extra::predis]",
+    "recipe[chef-php-extra::module_mbstring]",
+    "recipe[chef-php-extra::xcache]",
+    "recipe[chef-php-extra::module_mysql]",
+    "recipe[chef-magento::capistrano_setup]",
+    "recipe[chef-magento]",
+    "recipe[chef-magento::config_local]",
+    "recipe[imagemagick]",
+    "recipe[wordpress-mage-integration]",
+    "recipe[apache2-missguided]"
+  ],
+  "env_run_lists": {
+  }
+}

@@ -4,3 +4,8 @@ knife environment from file ./environments/dev.json
 knife environment from file ./environments/production.json
 
 knife role from file ./roles/starter.rb
+knife role from file ./roles/base.rb
+knife role from file ./roles/newrelic.rb
+knife role from file ./roles/websvr.rb
+
+knife recipe from file ./recipes/newrelic.rb
