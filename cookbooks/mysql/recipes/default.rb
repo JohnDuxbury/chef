@@ -9,11 +9,15 @@
 # mkdir ~/mysql
 # cd ~/mysql
 # execute "wget http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm"
-execute "yum localinstall mysql-community-release-el6-5.noarch.rpm"
-
-package "mysql-community-server" do
-    action :install
+bash "create folder" do
+  code "mkdir -p ~/mysql && cd ~/mysql"
+  not_if {::File.directory?("~/mysql")}
 end
+execute "wget http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm"
+
+execute "sudo yum -y localinstall mysql-community-release-el6-5.noarch.rpm"
+
+execute "sudo yum -y install mysql-community-server"
 
 service "mysqld" do
     action [:enable, :start]
@@ -27,3 +31,4 @@ end
 # vim config.inc.php
 # $cfg['Servers'][$i]['auth_type'] = 'cookie';
 # $cfg['Servers'][$i]['auth_type'] = 'http';
+
