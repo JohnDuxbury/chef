@@ -1,4 +1,4 @@
-knife bootstrap jd-magento.cloudapp.net -x jadux -P ********* --sudo -N "JD-Magento" -p 2222
+knife bootstrap jd-centos.cloudapp.net -x jadux -P **** --sudo -N "JD-CentOS" -p 2222
 
 knife environment from file ./environments/dev.json
 knife environment from file ./environments/production.json
