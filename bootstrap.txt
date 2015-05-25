@@ -1,9 +1,9 @@
-knife bootstrap jd-centos.cloudapp.net -x jadux -P **** --sudo -N "JD-CentOS" -p 2222
+knife bootstrap jd-centos.cloudapp.net -x jadux -P ****** --sudo -N "JD-CentOS" -p 2222
 
 knife environment from file ./environments/dev.json
 knife environment from file ./environments/production.json
 
-cd - /Users/JohnD/Documents/GitHub/Chef/chef
+cd /Users/JohnD/Documents/GitHub/Chef/chef
 
 knife role from file ./roles/starter.rb
 knife role from file ./roles/base.json
@@ -37,3 +37,15 @@ sudo mv magento-1.9.1.0.tar-2015-02-09-10-12-12.bz2 /var/www/html
 tar -jxf magento-1.9.1.0.tar-2015-02-09-10-12-12.bz2
 
 # selinux (13) permission denied - chcon -R --reference=/var/www /var/www/html
+
+
+# Base New Relic Install
+rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
+#or rpm -Uvh http://download.newrelic.com/pub/newrelic/el5/i386/newrelic-repo-5-3.noarch.rpm
+yum install -y newrelic-sysmond
+nrsysmond-config --set license_key=b777fcf3236a9f926b8d119ed2e23c67e2e7ade5
+/etc/init.d/newrelic-sysmond start
+
+scp -P 2222 -r ./MachineAgent-4.zip jadux@jd-centos.cloudapp.net:/opt/appdynamics
+
+java -jar ./MachineAgent-4/machineagent.jar
