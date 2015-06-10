@@ -8,7 +8,7 @@
 actions :install, :remove
 default_action :install
 
-attribute :license, :kind_of => String, :default => nil
+attribute :license, :kind_of => String, :default => 'b777fcf3236a9f926b8d119ed2e23c67e2e7ade5'
 
 attribute :logfile, :kind_of => String, :default => nil
 attribute :loglevel, :kind_of => String, :default => nil
