@@ -21,10 +21,10 @@
 # The Datadog api key to associate your agent's data with your organization.
 # Can be found here:
 # https://app.datadoghq.com/account/settings
-default['datadog']['api_key'] = nil
+default['datadog']['api_key'] = "d1c2107f4f5e218d3df2c4bfe13a1bd0"
 
 # Create an application key on the Account Settings page
-default['datadog']['application_key'] = nil
+default['datadog']['application_key'] = "0a85a5f7f53d35780f449b65a3265933ca16e92f"
 
 # Don't change these
 # The host of the Datadog intake server to send agent data to
