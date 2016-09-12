@@ -9,3 +9,4 @@ validation_client_name   "jditc-validator"
 validation_key           "#{current_dir}/jditc-validator.pem"
 chef_server_url          "https://api.opscode.com/organizations/jditc"
 cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:editor] = "/usr/bin/vim"
